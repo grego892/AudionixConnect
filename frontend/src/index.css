@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Audio level meter styles */
+.audio-level-meter {
+  background: linear-gradient(to right, #4caf50 0%, #4caf50 60%, #ff9800 80%, #f44336 100%);
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.audio-level-bar {
+  height: 100%;
+  background: #333;
+  transition: width 0.1s ease-out;
+}
+
+/* Status indicator styles */
+.status-indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-active {
+  background-color: #4caf50;
+  animation: pulse 2s infinite;
+}
+
+.status-inactive {
+  background-color: #757575;
+}
+
+.status-error {
+  background-color: #f44336;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Real-time data animation */
+.data-update {
+  animation: highlight 0.3s ease-out;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: rgba(25, 118, 210, 0.1);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* Loading animation */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Connection status styles */
+.connection-status {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.connection-connected {
+  background-color: #4caf50;
+}
+
+.connection-disconnected {
+  background-color: #f44336;
+  animation: pulse 1s infinite;
+}
+
+.connection-reconnecting {
+  background-color: #ff9800;
+}
+
+/* Custom table styles */
+.data-table {
+  min-width: 650px;
+}
+
+.data-table th {
+  font-weight: 600;
+  background-color: #fafafa;
+}
+
+.data-table .MuiTableCell-root {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Form styles */
+.form-section {
+  margin-bottom: 24px;
+}
+
+.form-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+  
+  .mobile-full-width {
+    width: 100% !important;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #ffffff;
+  }
+}
