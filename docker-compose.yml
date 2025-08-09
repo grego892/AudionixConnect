@@ -22,7 +22,13 @@ services:
     restart: unless-stopped
     user: "1000:1000" # Ensure container runs with matching UID/GID
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5000/api/status/health"]
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import requests; requests.get('http://localhost:5000/api/status/health', timeout=5)",
+        ]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -38,8 +44,8 @@ services:
       - "80:80"
       - "3000:3000"
     environment:
-      - REACT_APP_API_URL=http://localhost:5000/api
-      - REACT_APP_SOCKET_URL=http://localhost:5000
+      - REACT_APP_API_URL=/api
+      - REACT_APP_SOCKET_URL=
     depends_on:
       - backend
     networks:

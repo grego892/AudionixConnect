@@ -36,10 +36,10 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'audionix-connect-secret-key-2025'
 
 # Enable CORS for frontend integration
-CORS(app, origins=["http://localhost:3000", "http://localhost:3001"])
+CORS(app, origins=["http://localhost:3000", "http://localhost:3001", "http://localhost", "http://192.168.10.45", "http://192.168.10.45:80"])
 
 # Initialize SocketIO for real-time communication
-socketio = SocketIO(app, cors_allowed_origins=["http://localhost:3000", "http://localhost:3001"])
+socketio = SocketIO(app, cors_allowed_origins=["http://localhost:3000", "http://localhost:3001", "http://localhost", "http://192.168.10.45", "http://192.168.10.45:80"])
 
 # Initialize core components
 config_manager = ConfigManager()
