@@ -20,6 +20,7 @@ services:
     networks:
       - audionix-network
     restart: unless-stopped
+    user: "1000:1000" # Ensure container runs with matching UID/GID
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/api/status/health"]
       interval: 30s

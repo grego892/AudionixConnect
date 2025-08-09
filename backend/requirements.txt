@@ -9,8 +9,8 @@ Flask-CORS==4.0.0
 python-socketio==5.8.0
 eventlet==0.33.3
 
-# Audio processing (optional)
-# opuslib==3.0.1  # Uncomment if Opus encoding is needed
+# Audio processing
+opuslib==3.0.1  # Opus encoding support
 
 # System monitoring
 psutil==5.9.5

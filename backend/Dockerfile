@@ -26,17 +26,18 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Create necessary directories
+# Create necessary directories with proper permissions
 RUN mkdir -p /app/configs /app/logs
+
+# Create non-root user for security
+RUN useradd -m -u 1000 audionix && \
+    chown -R audionix:audionix /app
 
 # Set environment variables
 ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
 ENV FLASK_APP=app.py
 
-# Create non-root user for security
-RUN useradd -m -u 1000 audionix && \
-    chown -R audionix:audionix /app
 USER audionix
 
 # Expose port

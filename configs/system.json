@@ -1,0 +1,33 @@
+{
+    "version": "1.0.0",
+    "created": "2025-08-09T03:09:21.543251",
+    "audio": {
+        "default_sample_rate": 48000,
+        "default_bit_depth": 24,
+        "default_channels": 2,
+        "supported_codecs": [
+            "pcm",
+            "opus"
+        ],
+        "level_update_rate": 10,
+        "peak_hold_time": 1.0
+    },
+    "network": {
+        "default_ttl": 1,
+        "receive_buffer_size": 1048576,
+        "send_buffer_size": 1048576,
+        "multicast_interface": "0.0.0.0"
+    },
+    "monitoring": {
+        "status_update_rate": 10,
+        "stream_timeout": 5.0,
+        "silence_threshold": -40.0,
+        "clipping_threshold": -0.1
+    },
+    "system": {
+        "max_senders": 32,
+        "max_receivers": 32,
+        "log_level": "INFO"
+    },
+    "last_modified": "2025-08-09T03:09:21.547884"
+}
