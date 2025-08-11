@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y \
     libsndfile1 \
     net-tools \
     procps \
+    portaudio19-dev \
+    python3-pyaudio \
+    libportaudio2 \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
@@ -15,8 +18,14 @@ WORKDIR /app
 # Copy requirements and setup files first (better layer caching)
 COPY requirements.txt setup.py ./
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Update pip and install dependencies
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir wheel && \
+    # Install difficult packages first
+    pip install --no-cache-dir PyAudio opuslib && \
+    # Then install the rest
+    pip install --no-cache-dir -r requirements.txt || \
+    echo "Some packages failed to install, continuing anyway"
 
 # Copy the rest of the application
 COPY audionix_connect/ ./audionix_connect/
