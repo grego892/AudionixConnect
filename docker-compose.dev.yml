@@ -1,0 +1,26 @@
+version: "3.8"
+
+# This override file is for development purposes
+# Use with: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+services:
+  audionix-connect:
+    # Development settings
+    build:
+      # Build with development tag
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - DEVELOPMENT=true
+    image: audionix-connect:dev
+    container_name: audionix-connect-dev
+    # Mount source code for development
+    volumes:
+      - ./audionix_connect:/app/audionix_connect
+      - ./config/local-test.json:/config/config.json
+    # Environment variables for development
+    environment:
+      - DEBUG=true
+      - LOG_LEVEL=DEBUG
+    # Command override for development
+    command: ["audionix-connect", "start", "--config", "/config/config.json"]

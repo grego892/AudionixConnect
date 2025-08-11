@@ -1,0 +1,12 @@
+# Network and audio processing
+pylivewire>=1.0.0
+aes67>=0.1.0
+python-rtp>=0.0.7
+opus>=0.2.0
+sounddevice>=0.4.5
+numpy>=1.21.0
+
+# Utilities
+click>=8.0.0
+PyYAML>=6.0
+pydantic>=1.9.0

@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  audionix-connect:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: audionix-connect:latest
+    container_name: audionix-connect
+    restart: unless-stopped
+    network_mode: host # Important for multicast reception
+    volumes:
+      - ./config:/config # Mount the config directory
+    environment:
+      - TZ=UTC # Set timezone as needed
+    # If you prefer not to use host networking, you can use port mappings instead:
+    # ports:
+    #   - "5004:5004/udp"  # Incoming RTP port
+    #   - "5005:5005/udp"  # Outgoing RTP port
+    # And add this for multicast support without host networking:
+    # cap_add:
+    #   - NET_ADMIN

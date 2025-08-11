@@ -1,0 +1,13 @@
+{
+  "input": {
+    "multicast_address": "239.192.0.1",
+    "port": 5004,
+    "format": "aes67"
+  },
+  "output": {
+    "destination_address": "192.168.1.100",
+    "destination_port": 5005,
+    "encoding": "opus",
+    "bitrate": 128000
+  }
+}
