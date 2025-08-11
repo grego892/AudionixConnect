@@ -11,6 +11,8 @@ show_help() {
   echo ""
   echo "Commands:"
   echo "  build       Build the Docker image"
+  echo "  rebuild     Completely rebuild the image without cache"
+  echo "  up          Build if needed and start container (docker-compose up -d --build)"
   echo "  start       Start the AudionixConnect container"
   echo "  stop        Stop the AudionixConnect container"
   echo "  restart     Restart the AudionixConnect container"
@@ -62,10 +64,33 @@ dev() {
   echo "Development container started. Use '$0 logs' to view logs."
 }
 
+# Complete rebuild without cache
+rebuild() {
+  echo "Rebuilding AudionixConnect Docker container without cache..."
+  docker-compose down
+  docker rmi audionix-connect:latest || true
+  docker image prune -f
+  docker-compose build --no-cache
+  echo "Build complete. To start the container, run '$0 start'"
+}
+
+# Docker-compose up with build
+up() {
+  echo "Building (if needed) and starting AudionixConnect container..."
+  docker-compose up -d --build
+  echo "Container started. Use '$0 logs' to view logs."
+}
+
 # Process command line arguments
 case "$1" in
   build)
     build
+    ;;
+  rebuild)
+    rebuild
+    ;;
+  up)
+    up
     ;;
   start)
     start

@@ -8,7 +8,6 @@ setup(
     install_requires=[
         "dpkt>=1.9.7",
         "pyaudio>=0.2.11",
-        "socket-multicast>=0.1.0",
         "python-rtsp>=0.0.14",
         "opuslib>=3.0.1",
         "sounddevice>=0.4.5",

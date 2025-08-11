@@ -1,8 +1,8 @@
 # Network and audio processing
-# Using more widely available packages instead of pylivewire/aes67
+# Using widely available packages instead of pylivewire/aes67
 dpkt>=1.9.7  # For packet parsing
 pyaudio>=0.2.11  # For audio handling
-socket-multicast>=0.1.0  # For multicast support
+# Using built-in socket module for multicast instead of socket-multicast
 python-rtsp>=0.0.14  # RTP/RTSP support
 opuslib>=3.0.1  # For Opus codec (replaces opus)
 sounddevice>=0.4.5

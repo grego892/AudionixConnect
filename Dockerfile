@@ -31,8 +31,9 @@ RUN pip install --upgrade pip && \
 COPY audionix_connect/ ./audionix_connect/
 COPY config.json ./
 
-# Install the package
-RUN pip install -e .
+# Install the package with --no-deps to avoid dependency errors
+# We already installed the main dependencies earlier
+RUN pip install -e . --no-deps
 
 # Create volume mount point for configuration
 VOLUME /config

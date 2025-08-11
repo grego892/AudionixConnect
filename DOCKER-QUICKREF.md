@@ -47,6 +47,32 @@ The configuration files are located in the `./config/` directory:
 - `config.json`: Default configuration
 - `local-test.json`: Configuration for local testing
 
+## Troubleshooting and Debugging
+
+If you encounter issues with the Docker container, use the debugging helper:
+
+```bash
+# Launch a shell inside the container
+./docker-debug.sh shell
+
+# Check network interfaces and multicast routes
+./docker-debug.sh network
+
+# List installed Python packages
+./docker-debug.sh packages
+
+# View detailed logs with timestamps
+./docker-debug.sh logs
+```
+
+## Rebuilding After Dependency Changes
+
+If you need to rebuild the container after changing dependencies:
+
+```bash
+./rebuild-docker.sh
+```
+
 ## Docker Compose Manual Commands
 
 For more control, you can use Docker Compose directly:
